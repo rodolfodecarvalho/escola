@@ -8,9 +8,11 @@
       "name": "Python Debugger: Django",
       "type": "debugpy",
       "request": "launch",
+      "python": "${workspaceFolder}\\.venv/Scripts/python.exe",
       "args": ["runserver"],
       "django": true,
       "autoStartBrowser": false,
+      "justMyCode": false,
       "program": "${workspaceFolder}\\manage.py"
     }
   ]
