@@ -24,5 +24,9 @@
   "emmet.includeLanguages": {
     "django-html": "html"
   },
+
+  "breadcrumbs.enabled": false,
+  "editor.rulers": [200],
+  "editor.minimap.enabled": false,
   "django.debug": true
 }

@@ -1,9 +1,5 @@
-{# Load the tag library #} 
-{% load django_bootstrap5 %} 
-
-{# Load CSS and JavaScript #} 
-{% bootstrap_css %} 
-{% bootstrap_javascript %}
+{# Load the tag library #} {% load django_bootstrap5 %} {# Load CSS and JavaScript #} {% bootstrap_css %}
+{%bootstrap_javascript %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,14 +25,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="">Home</a>
-            <a class="nav-link" href="aluno">Alunos</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/aluno">Aluno</a>
+            <a class="nav-link" href="cadastrar">Cadastro</a>
           </div>
         </div>
       </div>
     </nav>
     <div class="content">
-        <p>escola</p>
+      <p>Cadastro</p>
     </div>
   </body>
 </html>
