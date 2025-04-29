@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.aluno, name="aluno"),
-    path('cadastrar', views.cadastrar, name="cadastrar"),
+    path('cadastro/', views.Cadastro.as_view(), name="cadastro")
 ]

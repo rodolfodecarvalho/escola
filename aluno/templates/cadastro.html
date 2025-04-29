@@ -1,5 +1,5 @@
 {# Load the tag library #} {% load django_bootstrap5 %} {# Load CSS and JavaScript #} {% bootstrap_css %}
-{%bootstrap_javascript %}
+{%bootstrap_javascript %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +27,25 @@
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="/aluno">Aluno</a>
-            <a class="nav-link" href="cadastrar">Cadastro</a>
           </div>
         </div>
       </div>
     </nav>
-    <div class="content">
-      <p>Cadastro</p>
+    <div class="container">
+      <form action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">{{form.nome.as_field_group}}</div>
+        <div class="mb-3">{{form.email.as_field_group}}</div>
+        <div class="mb-3">{{form.telefone.as_field_group}}</div>
+        <input type="submit" class="btn btn-success" value="Cadastro" />
+      </form>
     </div>
   </body>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  
+
+  {% comment %} <script src={% static 'jquery-3.7.1.min.js' %}></script>
+  <script src={% static 'jquery.mask.js' %}></script> {% endcomment %}
 </html>
