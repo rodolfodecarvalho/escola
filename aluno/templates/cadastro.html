@@ -40,12 +40,52 @@
         <input type="submit" class="btn btn-success" value="Cadastro" />
       </form>
     </div>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Active</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for aluno in alunos %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <form action="{% url 'atualizar' aluno.id %}" method="POST">
+              {% csrf_token %}
+              <td><input class="form-control" type="text" name="nome" id="nome" value="{{aluno.nome}}" /></td>
+              <td><input class="form-control" type="email" name="email" id="email" value="{{aluno.email}}" /></td>
+              <td>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="telefone"
+                  id="telefone"
+                  value="{{aluno.telefone}}"
+                  data-mask="(00) 00000-0000"
+                />
+              </td>
+              <td>{{aluno.active}}</td>
+              <td><input class="btn btn-primary" type="submit" value="Atualizar" /></td>
+            </form>
+            <td><a href="/aluno/excluir/{{aluno.id}}" class="btn btn-danger">Excluir</a></td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td>Sorry, no alunos in this list.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
-  
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-  
-
-  {% comment %} <script src={% static 'jquery-3.7.1.min.js' %}></script>
-  <script src={% static 'jquery.mask.js' %}></script> {% endcomment %}
 </html>
